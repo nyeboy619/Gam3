@@ -1,3 +1,5 @@
+package com.mycompany.myapp4;
+
 import android.*;
 import android.content.*;
 import android.graphics.*;

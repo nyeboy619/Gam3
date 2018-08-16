@@ -33,6 +33,13 @@
 
 		</activity>
 
+		<activity
+			android:screenOrientation="landscape"
+			android:name=".GameActivity"
+			android:label="Yeah">
+
+		</activity>
+
 	</application>
 
 </manifest>

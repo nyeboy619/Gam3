@@ -1,3 +1,5 @@
+package com.mycompany.myapp4;
+
 import com.mycompany.myapp4.R;
 import android.app.*;
 import android.os.*;

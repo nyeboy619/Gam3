@@ -1,4 +1,4 @@
-
+package com.mycompany.myapp4;
 import android.view.*;
 import android.content.*;
 import android.graphics.*;public class GameView extends View

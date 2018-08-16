@@ -1,3 +1,4 @@
+package com.mycompany.myapp4;
 
 import android.app.*;
 import android.os.*;
