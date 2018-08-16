@@ -2,6 +2,7 @@ import android.*;
 import android.content.*;
 import android.graphics.*;
 import android.view.*;
+import com.mycompany.myapp4.R;
 
 public class TitleView extends View
 {
@@ -28,7 +29,7 @@ public class TitleView extends View
 		playButtonUp = BitmapFactory.decodeResource(getResources(),R.drawable.play_button_up);
 		playButtonDown = BitmapFactory.decodeResource(getResources(),R.drawable.play_button_down);
 
-		titleGraphic = BitmapFactory.decodeResource(getResources(),R.drawable.title_graphic);
+		titleGraphic = BitmapFactory.decodeResource(getResources(),R.drawable.bg);
 	}
 
 	@Override
