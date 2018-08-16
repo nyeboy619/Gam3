@@ -1,8 +1,14 @@
-public class Gam3 extends Activity{
+
+import android.app.*;
+import android.os.*;
+import android.view.*;
+
+public class Gam3 extends Activity
+{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
-		super.OnCreate(savedInstanceState);
+		super.onCreate(savedInstanceState);
 		TitleView titleView = new TitleView(this);
 
 		//toggle no screen timeout

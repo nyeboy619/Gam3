@@ -1,4 +1,8 @@
-public class Character{
+
+import android.graphics.*;
+
+public class Character
+{
 	
 	private int id;
 	private Bitmap bmp;
@@ -7,7 +11,7 @@ public class Character{
 		id = newId;
 	}
 
-	public void setBitmap
+	
 	
 
 }
