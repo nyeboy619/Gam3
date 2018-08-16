@@ -8,8 +8,16 @@ public class TitleView extends View{
 
 	private boolean playButtonPressed;
 
+	private Context myContext;
+
 	public TitleView(Context context){
 		super(context);
+
+		//Holding a reference to Context.
+		//passing the context allowing the current activity
+		// to call for new activity
+		myContext = context;
+
 		//sourcing the graphic file from drawables
 		playButtonUp = BitmapFactory.decodeResource(getResources(),R.drawable.play_button_up);
 		playButtonDown = BitmapFactory.decodeResource(getResources(),R.drawable.play_button_down);
@@ -62,6 +70,11 @@ public class TitleView extends View{
 
 
 			case MotionEvent.ACTION_UP:
+
+				if(playButtonPressed){
+					Intent gameIntent = new Intent(myContext,GameActivity.class);
+					myContext.StartActivity(gameIntent);
+				}
 
 				playButtonPressed = false;
 
