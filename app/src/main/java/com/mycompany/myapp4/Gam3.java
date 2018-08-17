@@ -22,6 +22,7 @@ public class Gam3 extends Activity
 
 		setContentView(titleView);
 
+		
 	}
 
 }

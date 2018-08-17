@@ -21,6 +21,8 @@ public class TitleView extends View
 	
 	private Paint paint;
 
+	private Rect r;
+
 	public TitleView(Context context){
 		super(context);
 
@@ -33,7 +35,11 @@ public class TitleView extends View
 		playButtonUp = BitmapFactory.decodeResource(getResources(),R.drawable.play_button_up);
 		playButtonDown = BitmapFactory.decodeResource(getResources(),R.drawable.play_button_down);
 
+		//Bitmap.createScaledBitmap(titleGraphic,800,1198,false);
 		titleGraphic = BitmapFactory.decodeResource(getResources(),R.drawable.bg);
+		
+		r = new Rect();
+		r.set(0,0,720,1198);
 		
 		paint = new Paint();
 		paint.setColor(Color.WHITE);
@@ -53,10 +59,11 @@ public class TitleView extends View
 	protected void onDraw(Canvas canvas){
 		//Here is where canvas drawing will be put
 
-		canvas.drawBitmap(titleGraphic,(screenW-titleGraphic.getWidth())/2,0,null);
+		canvas.drawBitmap(titleGraphic,r,r,null);
 		
 		
-		canvas.drawRect(10, 200, 300, 400, paint);
+		canvas.drawText(screenW+":"+screenH,100,100,paint);
+	
 
 		if(playButtonPressed==false){
 			
