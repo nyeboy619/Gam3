@@ -18,6 +18,8 @@ public class TitleView extends View
 	private boolean playButtonPressed=false;
 
 	private Context myContext;
+	
+	private Paint paint;
 
 	public TitleView(Context context){
 		super(context);
@@ -32,6 +34,10 @@ public class TitleView extends View
 		playButtonDown = BitmapFactory.decodeResource(getResources(),R.drawable.play_button_down);
 
 		titleGraphic = BitmapFactory.decodeResource(getResources(),R.drawable.bg);
+		
+		paint = new Paint();
+		paint.setColor(Color.WHITE);
+		
 	}
 
 	@Override
@@ -48,6 +54,10 @@ public class TitleView extends View
 		//Here is where canvas drawing will be put
 
 		canvas.drawBitmap(titleGraphic,(screenW-titleGraphic.getWidth())/2,0,null);
+		
+		
+		canvas.drawRect(10, 200, 300, 400, paint);
+
 		if(playButtonPressed==false){
 			
 		canvas.drawBitmap(playButtonUp,(screenW-playButtonUp.getWidth())/2,(int)(screenH*0.7),null);
@@ -79,14 +89,14 @@ public class TitleView extends View
 
 
 			case MotionEvent.ACTION_UP:
-/*
+
 				
 				if(playButtonPressed){
 					Intent gameIntent = new Intent(myContext,GameActivity.class);
 					myContext.startActivity(gameIntent);
 				}
 				
-				*/
+				
 
 				playButtonPressed = false;
 
