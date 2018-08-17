@@ -15,7 +15,7 @@ public class TitleView extends View
 	private Bitmap playButtonUp;
 	private Bitmap playButtonDown;
 
-	private boolean playButtonPressed;
+	private boolean playButtonPressed=false;
 
 	private Context myContext;
 
@@ -48,8 +48,16 @@ public class TitleView extends View
 		//Here is where canvas drawing will be put
 
 		canvas.drawBitmap(titleGraphic,(screenW-titleGraphic.getWidth())/2,0,null);
+		if(playButtonPressed==false){
+			
 		canvas.drawBitmap(playButtonUp,(screenW-playButtonUp.getWidth())/2,(int)(screenH*0.7),null);
 
+		}
+		
+		else{
+		canvas.drawBitmap(playButtonDown,(screenW-playButtonDown.getWidth())/2,(int)(screenH*0.7),null);
+		}
+		
 	}
 
 	//Responsible for capturing touch event from the title screen
@@ -58,21 +66,12 @@ public class TitleView extends View
 			int x = eventAction = (int)event.getX();
 			int y = eventAction = (int)event.getY();
 
-			switch( eventAction ){
+			switch( event.getAction()){
 
 			case MotionEvent.ACTION_DOWN:
 
-				if ((x > (screenW-playButtonUp.getWidth())/2 &&
- 				x < ((screenW-playButtonUp.getWidth())/2) +
-				playButtonUp.getWidth()) &&
- 				y > (int)(screenH*0.7) &&
- 				y < (int)(screenH*0.7) +
- 				playButtonUp.getHeight()) {
- 				playButtonPressed = true;
- 				}
-
-
-
+				playButtonPressed =true;
+				
 				break;
 
 			case MotionEvent.ACTION_MOVE:
@@ -80,14 +79,18 @@ public class TitleView extends View
 
 
 			case MotionEvent.ACTION_UP:
-
+/*
+				
 				if(playButtonPressed){
 					Intent gameIntent = new Intent(myContext,GameActivity.class);
 					myContext.startActivity(gameIntent);
 				}
+				
+				*/
 
 				playButtonPressed = false;
 
+		        
 				break;
 
 			}
