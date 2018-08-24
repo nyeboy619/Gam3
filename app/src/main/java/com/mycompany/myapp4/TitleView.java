@@ -6,8 +6,9 @@ import android.graphics.*;
 import android.view.*;
 import com.mycompany.myapp4.R;
 
-public class TitleView extends View
+public class TitleView extends SurfaceView implements SurfaceHolder.Callbacks
 {
+	private MainThread thread;
 	
 	private Bitmap titleGraphic;
 	private int screenW;
@@ -26,6 +27,9 @@ public class TitleView extends View
 	public TitleView(Context context){
 		super(context);
 
+		thread = new MainThread(getHolder(), this);
+
+
 		//Holding a reference to Context.
 		//passing the context allowing the current activity
 		// to call for new activity
@@ -43,16 +47,39 @@ public class TitleView extends View
 		
 		paint = new Paint();
 		paint.setColor(Color.WHITE);
+
+
+		setFocusable(true);
 		
 	}
 
 	@Override
-	public void onSizeChanged (int w, int h, int oldw, int oldh){
+	public void surfaceChanged(SurfaceHolder surfaceHolder, int format, int width, int height){
 		super.onSizeChanged(w,h,oldw,oldh);
 		screenW = w;
 		screenH = h;
 	}
 
+	@Override
+	public void surfaceCreated(SurfaceHolder surfaceHolder){
+
+		thread = new MaintThread(getHolder(),this);
+
+		thread.setRunning(true);
+		thread.start();
+	}
+
+	@Override
+	public void surfaceDestroyed(SurfaceHolder surfaceHolder){
+		boolean retry = true;
+		while(true){
+			try{
+				thread.setRunning(false);
+				thread.join();
+			} catch (Exception e) { e.printStackTrace();	}
+			retry = false;
+		}
+	}
 
 
 	@Override
