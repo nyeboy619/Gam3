@@ -9,6 +9,11 @@ public class Character
 
 	public Character(int newId){
 		id = newId;
+
+	}
+
+	public void move(){
+		//moving characters
 	}
 
 	
