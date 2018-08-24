@@ -145,4 +145,9 @@ public class TitleView extends SurfaceView implements SurfaceHolder.Callbacks
 
 
 	}
+
+	public void update(){
+
+		
+	}
 }
